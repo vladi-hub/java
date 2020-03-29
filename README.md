@@ -1,2 +1,2 @@
-# OpenXava 5.4.1 App - Basci insurance policy management app
+# OpenXava 5.4.1 App - Basic insurance policy management app
 Java Projects
