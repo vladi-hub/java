@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ivy-module version="2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://ant.apache.org/ivy/schemas/ivy.xsd">
+
+	<info organisation="org.openxava" module="openxava" />
+
+	<dependencies>
+		<!-- !!! For some reason below jars are not downloaded !!! 
+			classmate.jar
+			ejb.jar
+			mime-util.jar
+			standard-jstlel.jar
+			standard.jar
+		-->
+		<dependency org="com.fasterxml" name="classmate" rev="1.0.0"/>
+		<!--dependency org="javax.ejb" name="ejb" rev="2.1"/--><!-- CAN'T download from Maven repository! -->
+		<dependency org="eu.medsea.mimeutil" name="mime-util" rev="2.1.2" transitive="false">
+			<!--exclude module="log4j"/>
+			<exclude module="slf4j-api"/>
+			<exclude module="slf4j-log4j12"/-->
+		</dependency>
+		<dependency org="org.apache.taglibs" name="taglibs-standard-jstlel" rev="1.2.1" transitive="false"/>
+		<dependency org="org.apache.taglibs" name="taglibs-standard-impl" rev="1.2.1" transitive="false"/>
+
+
+		<!-- Below jar are downloaded fine! -->
+		<dependency org="antlr" name="antlr" rev="2.7.7"/>
+		<dependency org="commons-beanutils" name="commons-beanutils" rev="1.8.0"/>
+		<dependency org="commons-codec" name="commons-codec" rev="1.9"/>
+		<dependency org="commons-digester" name="commons-digester" rev="2.1">
+			<exclude module="commons-beanutils"/>
+		</dependency>
+		<dependency org="commons-fileupload" name="commons-fileupload" rev="1.3.1">
+			<exclude module="commons-io"/>
+		</dependency>
+		<dependency org="commons-io" name="commons-io" rev="2.4"/>
+		<dependency org="commons-lang" name="commons-lang" rev="2.6"/>
+		<dependency org="org.apache.commons" name="commons-lang3" rev="3.3.2"/>
+		<dependency org="commons-validator" name="commons-validator" rev="1.4.0"/>
+		<dependency org="dom4j" name="dom4j" rev="1.6.1">
+			<exclude module="jaxme-api"/>
+			<exclude module="jaxen"/>
+			<exclude module="xsdlib"/>
+			<exclude module="relaxngDatatype"/>
+			<exclude module="pull-parser"/>
+			<exclude module="xpp3"/>
+			<exclude module="stax-api"/>
+			<exclude module="jdom"/>
+			<exclude module="xom"/>
+			<exclude module="icu4j"/>
+			<exclude module="xalan"/>
+			<exclude module="tagsoup"/>
+			<exclude module="commons-beanutils"/>
+			<exclude module="commons-digester"/>
+			<exclude module="xmlParserAPIs"/>
+			<exclude module="xercesImpl"/>
+			<exclude module="xml-apis"/>
+		</dependency>
+		<dependency org="com.sun.mail" name="dsn" rev="1.5.1">
+			<exclude module="activation"/>
+			<exclude module="javax.mail"/>
+		</dependency>
+		<dependency org="org.directwebremoting" name="dwr" rev="2.0.10">
+			<exclude module="xalan"/>
+			<exclude module="oro"/>
+			<exclude module="junit"/>
+			<exclude module="ognl"/>
+			<exclude module="oscore"/>
+			<exclude module="rife-continuations"/>
+			<exclude module="freemarker"/>
+			<exclude module="xwork"/>
+			<exclude module="ehcache"/>
+			<exclude module="asm"/>
+			<exclude module="cglib"/>
+			<exclude module="asm-attrs"/>
+			<exclude module="jstl"/>
+			<exclude module="struts"/>
+			<exclude module="spring"/>
+			<exclude module="webwork"/>
+			<exclude module="hibernate"/>
+			<exclude module="myfaces-api"/>
+			<exclude module="xom"/>
+			<exclude module="bsf"/>
+			<exclude module="backport-util-concurrent"/>
+			<exclude module="jsp-api"/>
+			<exclude module="jdom"/>
+			<exclude module="servlet-api"/>
+		</dependency>
+
+		<dependency org="org.codehaus.groovy" name="groovy-all" rev="2.2.2" transitive="false">
+		</dependency>
+
+		<dependency org="org.hibernate.common" name="hibernate-commons-annotations" rev="4.0.5.Final">
+		</dependency>
+		<dependency org="org.hibernate" name="hibernate-core" rev="4.3.9.Final">
+			<exclude module="jboss-transaction-api_1.2_spec"/>
+			<exclude module="hibernate-jpa-2.1-api"/>
+		</dependency>
+		<dependency org="org.hibernate" name="hibernate-entitymanager" rev="4.3.9.Final">
+			<exclude module="jboss-transaction-api_1.2_spec"/>
+			<exclude module="hibernate-jpa-2.1-api"/>
+		</dependency>
+		<dependency org="org.hibernate" name="hibernate-envers" rev="4.3.9.Final">
+		</dependency>
+		<dependency org="org.hibernate" name="hibernate-validator-annotation-processor" rev="5.1.3.Final"/>
+		<dependency org="org.hibernate" name="hibernate-validator-cdi" rev="5.1.3.Final">
+			<exclude module="jboss-interceptors-api_1.2_spec"/>
+			<exclude module="javax.interceptor-api"/>
+			<exclude module="javax.el-api"/>
+			<exclude module="javax.annotation-api"/>
+			<exclude module="cdi-api"/>
+		</dependency>
+		<dependency org="com.sun.mail" name="imap" rev="1.5.1">
+			<exclude module="activation"/>
+		</dependency>
+		<dependency org="com.lowagie" name="itext" rev="2.1.7">
+			<exclude module="bcmail-jdk14"/>
+			<exclude module="bcprov-jdk14"/>
+			<exclude module="bctsp-jdk14"/>
+		</dependency>
+		<dependency org="net.sf.jasperreports" name="jasperreports" rev="5.5.1">
+			<exclude module="mondrian"/>
+			<exclude module="ant"/>
+			<exclude module="ant-launcher"/>
+			<exclude module="antlr"/>
+			<exclude module="asm"/>
+			<exclude module="avalon-framework-impl"/>
+			<exclude module="barbecue"/>
+			<exclude module="barcode4j"/>
+			<exclude module="batik-awt-util"/>
+			<exclude module="batik-anim"/>
+			<exclude module="batik-svg-dom"/>
+			<exclude module="batik-bridge"/>
+			<exclude module="batik-gvt"/>
+			<exclude module="batik-script"/>
+			<exclude module="batik-css"/>
+			<exclude module="batik-dom"/>
+			<exclude module="batik-ext"/>
+			<exclude module="batik-svggen"/>
+			<exclude module="batik-util"/>
+			<exclude module="batik-xml"/>
+			<exclude module="bsh"/>
+			<exclude module="castor"/>
+			<exclude module="cglib"/>
+			<exclude module="commons-beanutils"/>
+			<exclude module="commons-cli"/>
+			<exclude module="commons-digester"/>
+			<exclude module="commons-javaflow"/>
+			<exclude module="ehcache"/>
+			<exclude module="hibernate"/>
+			<exclude module="jackson-annotations"/>
+			<exclude module="jackson-core"/>
+			<exclude module="jackson-databind"/>
+			<exclude module="jaxen"/>
+			<exclude module="jcommon"/>
+			<exclude module="jdom"/>
+			<exclude module="jdtcore"/>
+			<exclude module="jfreechart"/>
+			<exclude module="jxl"/>
+			<exclude module="log4j"/>
+			<exclude module="persistence-api"/>
+			<exclude module="png-encoder"/>
+			<exclude module="poi-ooxml"/>
+			<exclude module="poi-ooxml-schemas"/>
+			<exclude module="rhino"/>
+			<exclude module="saaj-api"/>
+			<exclude module="spring-beans"/>
+			<exclude module="spring-core"/>
+			<exclude module="stax-api"/>
+			<exclude module="velocity"/>
+			<exclude module="xalan"/>
+			<exclude module="xercesImpl"/>
+			<exclude module="xml-apis"/>
+			<exclude module="xml-apis-ext"/>
+			<exclude module="xmlbeans"/>
+			<exclude module="xmlParserAPIs"/>
+			<exclude module="xom"/>
+		</dependency>
+		<dependency org="javassist" name="javassist" rev="3.8.1.GA"/>
+		<dependency org="javax.inject" name="javax.inject" rev="1"/>
+		<dependency org="org.hibernate.javax.persistence" name="hibernate-jpa-2.1-api" rev="1.0.0.Final"/>
+		<dependency org="org.apache.taglibs" name="taglibs-standard-spec" rev="1.2.1">
+			<exclude module="servlet-api"/>
+			<exclude module="jsp-api"/>
+			<exclude module="el-api"/>
+		</dependency>
+		<dependency org="org.jboss.spec.javax.transaction" name="jboss-transaction-api_1.2_spec" rev="1.0.0.Final">
+			<exclude module="cdi-api"/>
+			<exclude module="el-api"/>
+			<exclude module="jboss-interceptors-api_1.2_spec"/>
+			<exclude module="jsr250-api"/>
+		</dependency>
+		<dependency org="com.sun.mail" name="mailapi" rev="1.5.1">
+			<exclude module="activation"/>
+		</dependency>
+		<dependency org="com.sun.mail" name="smtp" rev="1.5.1" transitive="false"/>
+		<dependency org="com.sun.mail" name="pop3" rev="1.5.1" transitive="false"/>
+
+		<dependency org="org.slf4j" name="slf4j-api" rev="1.6.1" transitive="false"/>
+		<dependency org="org.slf4j" name="slf4j-jdk14" rev="1.6.1" transitive="false"/>
+	</dependencies>
+</ivy-module>

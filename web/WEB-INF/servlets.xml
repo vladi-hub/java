@@ -1,0 +1,10 @@
+<!-- Servlet which configured Log4J -->
+<servlet>
+	<servlet-name>log4j-init</servlet-name>
+	<servlet-class>name.trifon.log4j.Log4jInit</servlet-class>
+	<init-param>
+		<param-name>log4j-init-file</param-name>
+		<param-value>WEB-INF/classes/log4j.xml</param-value>
+	</init-param>
+	<load-on-startup>1</load-on-startup>
+</servlet>

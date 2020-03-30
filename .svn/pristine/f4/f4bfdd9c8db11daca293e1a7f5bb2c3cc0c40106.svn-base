@@ -1,0 +1,18 @@
+
+= steps
+-01) 
+$ cd SmartFinance/i18n_UTF-8
+
+  native2ascii -encoding CP1251 SmartFinance-labels_bg.UTF-8.properties ../i18n/SmartFinance-labels_bg.properties
+$ native2ascii -encoding UTF-8  SmartFinance-labels_bg.UTF-8.properties ../i18n/SmartFinance-labels_bg.properties
+
+  native2ascii -encoding CP1251 SmartFinance-messages_bg.UTF-8.properties ../i18n/SmartFinance-messages_bg.properties
+$ native2ascii -encoding UTF-8  SmartFinance-messages_bg.UTF-8.properties ../i18n/SmartFinance-messages_bg.properties
+
+
+# !!! BELOW files MUST be translated in OpenXava project !!!
+-  native2ascii -encoding CP1251 Labels_bg.UTF-8.properties ../i18n/Labels_bg.properties
+-$ native2ascii -encoding UTF-8  Labels_bg.UTF-8.properties ../i18n/Labels_bg.properties
+
+-  native2ascii -encoding CP1251 Messages_bg.UTF-8.properties ../i18n/Messages_bg.properties
+-$ native2ascii -encoding UTF-8  Messages_bg.UTF-8.properties ../i18n/Messages_bg.properties

@@ -1,0 +1,19 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<security>
+	<role rolename="admin">
+		<permission object="all" action="all" />
+	</role>
+	<role rolename="agent">
+		<permission object="GOIns" action="all" />
+		<permission object="KaskoIns" action="all" />
+		<permission object="CMR" action="all" />
+		<permission object="GOInsClaim" action="all" />
+		<permission object="KaskoInsClaim" action="all" />
+		<permission object="CMRClaim" action="all" />
+	</role>
+
+	<user username="admin" password="admin" fullname="ERP Administrator"
+		roles="admin" />
+	<user username="agent" password="agent" fullname="Agent to add Ins"
+		roles="agent" />
+</security>

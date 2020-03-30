@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fontFamilies>
+
+	<fontFamily name="Arial">
+		<normal><![CDATA[fonts/arial.ttf]]></normal>
+		<bold><![CDATA[fonts/arialbd.ttf]]></bold>
+		<italic><![CDATA[fonts/ariali.ttf]]></italic>
+		<boldItalic><![CDATA[fonts/arialbi.ttf]]></boldItalic>
+		<pdfEmbedded><![CDATA[true]]></pdfEmbedded>
+	</fontFamily>
+
+	<fontFamily name="Tahoma">
+		<normal><![CDATA[fonts/tahoma.ttf]]></normal>
+		<bold><![CDATA[fonts/tahomabd.ttf]]></bold>
+		<pdfEmbedded><![CDATA[true]]></pdfEmbedded>
+	</fontFamily>
+
+	<fontFamily name="Durga">
+		<normal><![CDATA[fonts/Durga_03-09-2005.ttf]]></normal>
+		<bold><![CDATA[fonts/Durga_Bold-04-09-2012.ttf]]></bold>
+		<pdfEncoding>Identity-H</pdfEncoding>
+		<pdfEmbedded><![CDATA[true]]></pdfEmbedded>
+	</fontFamily>
+
+</fontFamilies>
+<fontFamily name="DejaVu Sans">
+    <normal>net/sf/jasperreports/fonts/dejavu/DejaVuSans.ttf</normal>
+    <bold>net/sf/jasperreports/fonts/dejavu/DejaVuSans-Bold.ttf</bold>
+    <italic>net/sf/jasperreports/fonts/dejavu/DejaVuSans-Oblique.ttf</italic>
+    <boldItalic>net/sf/jasperreports/fonts/dejavu/DejaVuSans-BoldOblique.ttf</boldItalic>
+    <pdfEncoding>Identity-H</pdfEncoding>
+    <pdfEmbedded>true</pdfEmbedded>
+    <exportFonts>
+      <export key="net.sf.jasperreports.html">'DejaVu Sans', Arial, Helvetica, sans-serif</export>
+      <export key="net.sf.jasperreports.xhtml">'DejaVu Sans', Arial, Helvetica, sans-serif</export>
+    </exportFonts>
+    <!--
+    <locales>
+      <locale>en_US</locale>
+      <locale>de_DE</locale>
+    </locales>
+    -->
+  </fontFamily>

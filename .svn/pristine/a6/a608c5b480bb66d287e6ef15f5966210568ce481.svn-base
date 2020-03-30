@@ -1,0 +1,78 @@
+<?xml version = "1.0" encoding = "ISO-8859-1"?>
+<!DOCTYPE controllers SYSTEM "dtds/controllers.dtd">
+
+<controllers>
+
+	<!-- Environment variable:
+	<env-var name="SmartFinance_DEFAULT_YEAR" value="2017"/>
+	-->
+
+	<!-- Session object:
+	<object name="SmartFinance_activeYear" class="java.lang.Integer" value="2017" scope="global"/>
+	-->
+
+	<!--Controller:
+	<controller name="Teacher">
+		<extends controller="Typical"/>
+
+		<action name="new" image="new.gif" keystroke="Control N"
+			class="actions.CreateTeacher">
+		</action>
+
+		<action name="basicReport" mode="list"
+			class="org.openxava.action.report.ExtendedGenerateReportAction"
+			image="pdf.gif">
+			<set property="jrxml" value="products.jrxml"/>
+			<set property="format" value="pdf"/>
+			<set property="inNewWindow" value="true"/>
+		</action>
+	</controller>    
+	-->
+
+	<controller name="DailyExpire">
+		<extends controller="Collection"/>
+		<action name="reportDailyExpire" mode="list"
+			class="com.sf.actions.PolicyExpirationReportsDaily"
+			label="Report Daily Expiring Policies" takes-long="true" image="images/pdf.gif"
+			keystroke="Control Alt P">
+			<set property="type" value="pdf" />
+		</action>
+	</controller>
+
+	<controller name="CustomerController">
+		<!--extends controller="TypicalNotResetOnSave"/-->
+		<!--extends controller="ExtendedPrint"/-->
+		<!--extends controller="Print"/-->
+		<extends controller="Navigation"/>
+		<extends controller="CRUD"/>
+
+		<action name="save" mode="detail"
+			class="org.openxava.actions.SaveAction"
+			image="save.gif"
+			icon="content-save"
+			by-default="if-possible"
+			keystroke="F3">
+			<set property="resetAfter" value="false"/>
+		</action>
+
+		<action name="generateExcel" mode="list"
+			class="org.openxava.actions.GenerateReportAction" image="excel.gif"
+			icon="file-excel" keystroke="Control Alt X">
+			<set property="type" value="csv"/>
+		</action>
+		<!--
+		<action name="generateExcel" mode="list"
+			class="org.openxava.actions.GenerateReportAction" image="excel.gif"
+			icon="file-excel" keystroke="Control Alt X">
+			<set property="type" value="xls" />
+		</action>
+		-->
+		<action name="basicCustomerReport" mode="list"
+			class="org.openxava.action.report.ExtendedGenerateReportAction"
+			image="pdf.gif">
+			<set property="jrxml" value="customers.jrxml"/>
+			<set property="format" value="pdf"/>
+			<set property="inNewWindow" value="true"/>
+		</action>
+	</controller>
+</controllers>

@@ -1,0 +1,5 @@
+# Tomcat
+tomcat.manager.url=http://localhost:8080/manager/text
+tomcat.username=tomcat
+tomcat.password=tomcat
+#war-context-path=

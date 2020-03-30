@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fontFamilies>
+
+	<fontFamily name="Durga">
+		<normal><![CDATA[fonts/Durga_03-09-2005.ttf]]></normal>
+		<bold><![CDATA[fonts/Durga_Bold-04-09-2012.ttf]]></bold>
+		<pdfEncoding>Identity-H</pdfEncoding>
+		<pdfEmbedded><![CDATA[true]]></pdfEmbedded>
+	</fontFamily>
+
+
+	<fontFamily name="DejaVu Sans">
+		<normal><![CDATA[fonts/DejaVuSans.ttf]]></normal>
+		<bold><![CDATA[fonts/DejaVuSans-Bold.ttf]]></bold>
+		<pdfEmbedded><![CDATA[true]]></pdfEmbedded>
+	</fontFamily>
+	<fontFamily name="DejaVu Serif">
+		<normal><![CDATA[fonts/DejaVuSerif.ttf]]></normal>
+		<bold><![CDATA[fonts/DejaVuSerif-Bold.ttf]]></bold>
+		<italic><![CDATA[fonts/DejaVuSerif-Italic.ttf]]></italic>
+		<boldItalic><![CDATA[fonts/DejaVuSerif-BoldItalic.ttf]]></boldItalic>
+		<pdfEmbedded><![CDATA[true]]></pdfEmbedded>
+	</fontFamily>
+
+</fontFamilies>

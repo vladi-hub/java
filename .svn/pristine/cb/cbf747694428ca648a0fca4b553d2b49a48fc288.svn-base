@@ -1,0 +1,69 @@
+= Development steps (Xubuntu 14.04)
+Used OpenXava version...: 5.4.1
+
+
++01) Install MySQL Server (5.5)
+$ sudo apt-get install mysql-server mysql-client
+$ sudo vim /etc/mysql/my.cnf
+ bind-address            = 192.168.115.104
+ bind-address            = 127.0.0.1
+#bind-address            = 127.0.0.1, comment it in order to listen on all IPs   
+ lower_case_table_names=1
+   
+$ sudo /etc/init.d/mysql restart
+  sudo service mysql restart
+  
+# Check configuration
+$ netstat -tap
+
+# Output should Looks like:
+tcp        0      0 *:mysql                 *:*                     LISTEN      -               
+
+
+# How to install MySQL JDBC Driver
+$ sudo apt-get install libmysql-java
+  /usr/share/java/mysql.jar
+  /usr/share/java/mysql-connector-java-5.1.28.jar
+
+
++02.1) Create new MySQL Database
+$ mysql -u root -p
+mysql> CREATE DATABASE IF NOT EXISTS smartfinancedb
+ DEFAULT CHARACTER SET = utf8
+;
+
+## If you want to drop it;
+mysql> DROP DATABASE smartfinancedb;
+
+
++02.2) Create new DB user
+mysql> GRANT ALL ON smartfinancedb.* TO 'sfadmin'@'localhost' IDENTIFIED BY 'admin';
+mysql> SHOW GRANTS FOR 'sfadmin'@'localhost';
+mysql> \q
+
++02.3) Test if you can connect
+$ mysql -u sfadmin -D smartfinancedb -h localhost -p
+
+
++02.4) Create new tables and import initial data.
+$ cd /data/progs/openxava/5.4.1/workspace/SmartFinance
+$ mysql -u sfadmin -D smartfinancedb -h localhost -p
+mysql> use smartfinancedb;
+mysql> source db-01_create-script.sql
+mysql> source db-02_data-script.sql
+mysql> show tables;
+
+mysql> \q
+
+
++03.1) Start Tomcat server
+$ cd /data/progs/openxava/5.4.1/tomcat/bin
+$ ./catalina.sh run
+
++03.2) Deploy application from Eclipse using Ant task "deploy"
+
++03.3) Make test requests
+ - http://localhost:8080/SmartFinance
+   admin/admin
+
+-03.4) 

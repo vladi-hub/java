@@ -1,0 +1,31 @@
+= Use Jasper Studio
+$ cd /data/ide/jasper-studio/6.3.1
+$ ./runubuntu.sh
+
+!!!!!!!
+## Make report compatible with 5.6 version
+
+
+= Can't Use iReport-5.5.0 (NOT working on Xubuntu)
+-$ cd /media/sf_vbox_shared/ide/iReport/5.5.0/bin
+-$ cd /data/ide/ireport/5.6.0/bin/
+
+$ ./ireport
+
+
+  !!!!!!!!!!!!!!!!!
+  !!! Important !!!
+= Field elements in JasperReport, change PDF Encoding
+from: 
+	pdfEncoding="UTF-8"
+to:
+	pdfEncoding="Identity-H"
+
+
+  !!!!!!!!!!!!!!!!!
+  !!! Important !!!
+= Table name in JasperReport SQL statements MUST match exact case as in MySQL DB
+SELECT cust.*, custType.name AS customer_type_name
+FROM Customer cust
+LEFT OUTER JOIN customer_type custType ON (cust.customer_type_id = custType.id)
+ORDER BY cust.id

@@ -1,0 +1,146 @@
+<?xml version="1.0"?>
+<project name="SmartFinance" basedir="." default="deploy">
+
+	<property name="project" value="SmartFinance" />
+	<property name="ox3" value="true" />
+	<property file="../openxava.properties"/>
+
+	<!-- @Trifon - override OpenXava properties-->
+	<property file="openxava.local.properties"/>
+
+	<!-- @Trifon - Remote tomcat deploy-->
+	<property name="war-context-path" value="/${project}"/>
+	<property file="tomcat-deploy.properties"/>
+	<path id="catalina-ant-classpath">
+		<fileset dir="../../tomcat/lib">
+			<include name="catalina-ant.jar"/>
+			<include name="tomcat-coyote.jar"/>
+			<include name="tomcat-util.jar"/>
+		</fileset>
+		<fileset dir="../../tomcat/bin">
+			<include name="tomcat-juli.jar"/>
+		</fileset>
+	</path>
+
+	<!-- 
+	Compile all .java and .groovy 
+	Not needed to call it if you work inside Eclipse
+	-->
+	<target name="compile">
+		<ant antfile="../OpenXava/build.xml" target="compile"/>
+	</target>
+
+	<!-- @Trifon -->
+	<target name="deploy">
+		<!-- In a directory -->
+		<ant antfile="../OpenXava/build.xml" target="deploy"/>
+	</target>
+
+	<!-- 
+	Build and deploy the application in war format. 
+	It deploys it on the Tomcat included in OpenXava distribution, 
+	to deploy to other location modify the tomcat.dir property of workspace/openxava.properties.
+	-->
+	<target name="deployWar">
+		<!-- In a file (it does not work well on windows + tomcat)-->
+		<ant antfile="../OpenXava/build.xml" target="deployWar"/>
+		<!-- @Trifon -->
+	</target>
+
+	<!-- 
+	Build the application in war format.
+	Leaves the war in the workspace.dist/YourApplication.dist folder.
+	 -->
+	<target name="createWar">
+		<ant antfile="../OpenXava/build.xml" target="createWar"/>
+	</target>
+
+	<!--
+	Build the application in portlets format 
+	-->
+	<target name="generatePortlets">
+		<ant antfile="../OpenXava/build.xml" target="generatePortlets"/>
+	</target>
+
+	<!--
+	Update this project with the latest OpenXava version present in the workspace.
+	It must be called just after update the OpenXava version.
+	-->
+	<target name="updateOX">
+		<ant antfile="../OpenXava/build.xml" target="updateOX"/>
+	</target>
+
+	<!-- Generates the schema from scratch. Shows it in console, but does not execute it -->
+	<target name="generateSchema">
+		<ant antfile="../OpenXava/build.xml" target="generateSchemaJPA">
+			<property name="persistence.unit" value="junit"/>
+			<!--property name="schema.path" value="../OpenXava/lib/hsqldb.jar"/-->
+			<!--property name="schema.path" value="../OpenXava/lib/postgresql-9.4.1208.jar"/-->
+			<property name="schema.path" value="../OpenXava/lib/mysql-connector-java-5.1.35-bin.jar"/>
+		</ant>
+	</target>
+
+	<!--
+	Connects to your database and updates your schema in order to match to your current application.
+	Remember to give value to schema.path with the path of the JDBC driver jar for your database.
+	-->
+	<target name="updateSchema">
+		<ant antfile="../OpenXava/build.xml" target="updateSchemaJPA">
+			<property name="persistence.unit" value="junit"/>
+			<property name="schema.path" value="../OpenXava/lib/mysql-connector-java-5.1.35-bin.jar"/>
+		</ant>
+	</target>
+
+	<!-- @Trifon - Remote tomcat deploy-->
+	<!--taskdef name="catalina-install" classname="org.apache.catalina.ant.InstallTask" classpathref="catalina-ant-classpath"/-->
+	<!--
+	<taskdef name="catalina-deploy" classname="org.apache.catalina.ant.DeployTask" classpathref="catalina-ant-classpath"/>
+	<taskdef name="catalina-undeploy" classname="org.apache.catalina.ant.UndeployTask" classpathref="catalina-ant-classpath"/>
+	<taskdef name="catalina-list" classname="org.apache.catalina.ant.ListTask" classpathref="catalina-ant-classpath"/>
+	<taskdef name="catalina-reload" classname="org.apache.catalina.ant.ReloadTask" classpathref="catalina-ant-classpath"/>
+	<taskdef name="catalina-start" classname="org.apache.catalina.ant.StartTask" classpathref="catalina-ant-classpath"/>
+	<taskdef name="catalina-stop" classname="org.apache.catalina.ant.StopTask" classpathref="catalina-ant-classpath"/>
+-->
+	<taskdef file="tomcat-ant-tasks.properties" classpathref="catalina-ant-classpath"/>
+	<target name="tomcat-remote-list-applications" description="List all web app on remote Tomcat server">
+		<catalina-list url="${tomcat.manager.url}"
+			username="${tomcat.username}"
+			password="${tomcat.password}"
+		/>
+	</target>
+	<target name="tomcat-remote-start-webapp">
+		<catalina-start url="${tomcat.manager.url}"
+			username="${tomcat.username}"
+			password="${tomcat.password}"
+			path="${war-context-path}"/>
+	</target>
+	<target name="tomcat-remote-stop-webapp">
+		<catalina-stop url="${tomcat.manager.url}"
+			username="${tomcat.username}"
+			password="${tomcat.password}"
+			path="${war-context-path}"
+			failonerror="false"/>
+	</target>
+	<target name="tomcat-remote-reload-webapp" description="Reload web application on remote Tomcat server">
+		<catalina-reload url="${tomcat.manager.url}"
+			username="${tomcat.username}"
+			password="${tomcat.password}"
+			path="${war-context-path}"
+		/>
+	</target>
+	<target name="tomcat-remote-deploy-webapp" depends="createWar" description="Deploy web application on remote Tomcat server">
+		<catalina-deploy url="${tomcat.manager.url}"
+			username="${tomcat.username}"
+			password="${tomcat.password}"
+			path="${war-context-path}"
+			war="../../workspace.dist/${project}.dist/${project}.war"
+		/>
+	</target>
+	<target name="tomcat-remote-undeploy-webapp">
+		<catalina-undeploy url="${tomcat.manager.url}"
+			username="${tomcat.username}"
+			password="${tomcat.password}"
+			path="${war-context-path}"
+			failonerror="false"/>
+	</target>
+</project>
